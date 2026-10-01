@@ -37,6 +37,13 @@ def load_split(split: str, limit: int | None, seed: int):
     return ds
 
 
+def model_revision(model_id: str) -> str | None:
+    """Snapshot hash of the cached model (config._commit_hash is not set in transformers 5)."""
+    from huggingface_hub import try_to_load_from_cache
+    path = try_to_load_from_cache(model_id, "config.json")
+    return Path(path).parent.name if isinstance(path, str) else None
+
+
 def git_commit() -> str:
     try:
         return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
@@ -104,7 +111,7 @@ def main():
     true_freq = np.bincount(y, minlength=K) / len(y)
     metrics = {
         "model": args.model,
-        "model_revision": getattr(model.config, "_commit_hash", None),
+        "model_revision": model_revision(args.model),
         "prompt_format": "chat (thinking disabled, assistant prefilled 'Answer:')" if chat else "plain completion",
         "benchmark": "cais/mmlu all; temperature fit on validation, metrics on test",
         "n_validation": int(len(val["labels"])), "n_test": int(len(y)),
