@@ -1,0 +1,114 @@
+{
+  "model": "Qwen/Qwen3.5-4B-Base",
+  "model_revision": null,
+  "prompt_format": "plain completion",
+  "benchmark": "cais/mmlu all; temperature fit on validation, metrics on test",
+  "n_validation": 1531,
+  "n_test": 14042,
+  "binning": "top-label, 15 bins, equal-width on [0,1] and equal-mass (confidence quantiles)",
+  "brier_definition": "multiclass sum_k (p_k - y_k)^2, range [0,2]; brier_top = binary Brier of top-label confidence",
+  "temperature": 1.0790358506582047,
+  "test_raw": {
+    "n": 14042,
+    "accuracy": 0.7304515026349523,
+    "nll": 0.7198095543964771,
+    "brier": 0.36715779599446224,
+    "brier_top": 0.1450805373340233,
+    "ece_width": 0.011124806807696393,
+    "ece_mass": 0.012465874053636498,
+    "mce_width": 0.03862074918068037,
+    "auroc": 0.8272727237602595,
+    "mean_confidence": 0.7338576880456806,
+    "ci95": {
+      "accuracy": [
+        0.7226890756302521,
+        0.7376459905996297
+      ],
+      "brier": [
+        0.35905867857000945,
+        0.37544240446787197
+      ],
+      "nll": [
+        0.7037000608255164,
+        0.7363896347037436
+      ],
+      "ece_width": [
+        0.009137519005391935,
+        0.01894915349334317
+      ],
+      "ece_mass": [
+        0.010787654293633249,
+        0.020953228157866162
+      ]
+    }
+  },
+  "test_temperature_scaled": {
+    "n": 14042,
+    "accuracy": 0.7304515026349523,
+    "nll": 0.7173864212494746,
+    "brier": 0.367468776149862,
+    "brier_top": 0.1452993517090804,
+    "ece_width": 0.012419438389405872,
+    "ece_mass": 0.015618602305850408,
+    "mce_width": 0.04183542297394294,
+    "auroc": 0.8271113492876405,
+    "mean_confidence": 0.7180740764000418,
+    "ci95": {
+      "accuracy": [
+        0.7226890756302521,
+        0.7376459905996297
+      ],
+      "brier": [
+        0.3597310730885668,
+        0.3755309278707302
+      ],
+      "nll": [
+        0.7021603139083545,
+        0.7331604376603011
+      ],
+      "ece_width": [
+        0.012554330409920848,
+        0.0219068955263856
+      ],
+      "ece_mass": [
+        0.014306059143000522,
+        0.024046339754960223
+      ]
+    }
+  },
+  "letter_mass": {
+    "test_mean": 0.3550067391875343,
+    "test_min": 0.0021425867453217506,
+    "test_frac_below_0.5": 0.8167639937330865
+  },
+  "position_bias": {
+    "predicted_freq_ABCD": [
+      0.2157,
+      0.2587,
+      0.3037,
+      0.2218
+    ],
+    "true_freq_ABCD": [
+      0.2295,
+      0.2465,
+      0.2551,
+      0.2689
+    ]
+  },
+  "batch_check": {
+    "n": 32,
+    "max_abs_prob_diff": 0.05018939593877658,
+    "argmax_agreement": 1.0
+  },
+  "env": {
+    "python": "3.12.14",
+    "torch": "2.11.0+cu128",
+    "transformers": "5.18.0",
+    "device": "cuda",
+    "gpu": "NVIDIA A100-SXM4-40GB",
+    "dtype": "torch.bfloat16"
+  },
+  "commit": "fa429a1fda8a0dda02049fe0bc4bd6af63b9a674",
+  "limit": null,
+  "seconds": 251.3
+}

@@ -1,0 +1,5 @@
+.venv/
+logs/
+# per-item outputs stay on the server; commit only aggregate results
+results/**/predictions.npz
+results/smoke*/

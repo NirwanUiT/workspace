@@ -1,0 +1,20 @@
+{
+  "model": "Qwen/Qwen3.5-4B-Base",
+  "n": 64,
+  "batch_size": 16,
+  "padding_effect_fp32 (fp32 single vs fp32 batched)": {
+    "max_abs_prob_diff": 0.000817877778445053,
+    "mean_abs_prob_diff": 0.00010012132725591375,
+    "argmax_agreement": 1.0
+  },
+  "padding_plus_rounding_bf16 (bf16 single vs bf16 batched)": {
+    "max_abs_prob_diff": 0.041787742219612456,
+    "mean_abs_prob_diff": 0.005842592926076412,
+    "argmax_agreement": 1.0
+  },
+  "precision_effect (bf16 single vs fp32 single)": {
+    "max_abs_prob_diff": 0.03098156458659107,
+    "mean_abs_prob_diff": 0.0053652017562422815,
+    "argmax_agreement": 0.984375
+  }
+}
