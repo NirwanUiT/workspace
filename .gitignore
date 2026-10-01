@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Data & models (keep large files out of git; put them in ~/storage)
+data/
+models/
+*.ckpt
+*.pt
+*.safetensors
+
+# Misc
+.env
+.DS_Store
